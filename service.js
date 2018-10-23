@@ -17,9 +17,16 @@ class Service {
 
 const instanceOfAxios = new Service('http://xkcd.com/', 2000)
 
+instanceOfAxios.get('info.0.json', console.log)
+
+Service.prototype.get = () => {}
+
 instanceOfAxios.setInterceptor('request', config => {
   console.log(config)
   return config
 })
 
 instanceOfAxios.get('info.0.json', console.log)
+
+console.log(typeof Service)
+console.log(instanceOfAxios instanceof Service)
